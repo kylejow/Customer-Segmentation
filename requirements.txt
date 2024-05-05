@@ -7,3 +7,5 @@ keras==3.2.1
 jupyterlab==4.1.6
 seaborn==0.13.2
 jupyter==1.0.0
+plotly==5.22.0
+yellowbrick==1.5
