@@ -18,6 +18,8 @@ svmLinear = joblib.load("models/svm_linear_model.pkl")
 rbf_scaler = joblib.load("models/scaler_svm_rbf.pkl")
 svmRBF = joblib.load("models/svm_rbf_model.pkl")
 
+decision = joblib.load("models/decision.pkl")
+
 nn = tf.keras.models.load_model('models/nn.keras')
 
 gender_mapping = {0: "Male", 1: "Female"}
@@ -48,13 +50,17 @@ linear_pred = svmLinear.predict(linear_data)
 rbf_data = rbf_scaler.transform(df.copy())
 rbf_pred = svmRBF.predict(rbf_data)
 
-nnPred = nn.predict(df)
+decision_pred = decision.predict(df.copy())
+
+nnPred = nn.predict(df.copy())
 
 st.write(f"Logistic Predicted Spending Catagory: {logicPred[0]}")
 st.write(f"Linear SVM Predicted Spending Catagory: {linear_pred[0]}")
 st.write(f"Non-Linear SVM Predicted Spending Catagory: {rbf_pred[0]}")
 
 categories = ['Low', 'Medium', 'High']
+st.write(f"Decision Tree Predicted Spending Catagory: {categories[decision_pred[0]-1]}")
+
 nn_category_index = np.argmax(nnPred[0])
 nn_category = categories[nn_category_index]
 st.write(f"Neural Network Predicted Spending Category: {nn_category}")
