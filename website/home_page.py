@@ -10,15 +10,15 @@ warnings.filterwarnings("ignore")
 
 st.header('Customer Segmentation', divider='blue')
 
-logistic = joblib.load("../models/logistic.pkl")
+logistic = joblib.load("models/logistic.pkl")
 
-linear_scaler = joblib.load("../models/scaler_svm_linear.pkl")
-svmLinear = joblib.load("../models/svm_linear_model.pkl")
+linear_scaler = joblib.load("models/scaler_svm_linear.pkl")
+svmLinear = joblib.load("models/svm_linear_model.pkl")
 
-rbf_scaler = joblib.load("../models/scaler_svm_rbf.pkl")
-svmRBF = joblib.load("../models/svm_rbf_model.pkl")
+rbf_scaler = joblib.load("models/scaler_svm_rbf.pkl")
+svmRBF = joblib.load("models/svm_rbf_model.pkl")
 
-nn = tf.keras.models.load_model('../models/nn.keras')
+nn = tf.keras.models.load_model('models/nn.keras')
 
 gender_mapping = {0: "Male", 1: "Female"}
 gender = st.radio("Gender", options=list(gender_mapping.values()))
