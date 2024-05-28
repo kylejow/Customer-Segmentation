@@ -5,6 +5,7 @@ import tensorflow as tf
 import warnings
 import pandas as pd
 import joblib
+import numpy as np
 warnings.filterwarnings("ignore")
 
 st.header('Customer Segmentation', divider='blue')
@@ -52,4 +53,8 @@ nnPred = nn.predict(df)
 st.write(f"Logistic Predicted Spending Catagory: {logicPred[0]}")
 st.write(f"Linear SVM Predicted Spending Catagory: {linear_pred[0]}")
 st.write(f"Non-Linear SVM Predicted Spending Catagory: {rbf_pred[0]}")
-st.write(f"Neural Network Predicted Spending Catagory: {nnPred[0]}")
+
+categories = ['Low', 'Medium', 'High']
+nn_category_index = np.argmax(nnPred[0])
+nn_category = categories[nn_category_index]
+st.write(f"Neural Network Predicted Spending Category: {nn_category}")
