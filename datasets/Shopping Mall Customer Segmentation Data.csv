@@ -1,4 +1,4 @@
-Customer ID,Age,Gender,Annual Income,Spending Score
+CustomerID,Age,Gender,Annual Income (k$),Spending Score (1-100)
 d410ea53-6661-42a9-ad3a-f554b05fd2a7,30,Male,151479,89
 1770b26f-493f-46b6-837f-4237fb5a314e,58,Female,185088,95
 e81aa8eb-1767-4b77-87ce-1620dc732c5e,62,Female,70912,76
